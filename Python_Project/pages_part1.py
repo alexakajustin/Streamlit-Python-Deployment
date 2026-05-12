@@ -184,7 +184,8 @@ def page_missing_outliers(df):
     c1, c2 = st.columns(2)
     with c1:
         fig = px.box(df, y=col_sel, points="all", template="plotly_dark",
-                     title=f"Boxplot — {col_sel}", color_discrete_sequence=['#00e5ff'])
+                     title=f"Boxplot — {col_sel}", color_discrete_sequence=['#00e5ff'],
+                     hover_data={'Year': True})
         fig.update_layout(font=dict(family="Inter"))
         st.plotly_chart(fig, width='stretch')
     with c2:
@@ -198,7 +199,8 @@ def page_missing_outliers(df):
     IQR = Q3 - Q1
     outliers = df[(df[col_sel] < Q1 - 1.5*IQR) | (df[col_sel] > Q3 + 1.5*IQR)]
     if len(outliers) > 0:
-        st.warning(f"🔴 S-au detectat **{len(outliers)} outlier(i)** pentru {col_sel}: anii {list(outliers['Year'].values)}")
+        ani_outlier = ", ".join([str(int(y)) for y in outliers['Year'].values])
+        st.warning(f"🔴 S-au detectat **{len(outliers)} outlier(i)** pentru {col_sel}: anul/anii **{ani_outlier}**")
     else:
         st.success(f"✅ Nu s-au detectat outlieri pentru {col_sel} (metoda IQR).")
 

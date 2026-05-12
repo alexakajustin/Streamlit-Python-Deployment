@@ -10,13 +10,13 @@ from pages_config import section_header, problem_box, method_box, interpret_box,
 
 def page_streamlit(df):
     section_header("📊", "Metode Streamlit pentru Afișare și Grafice",
-                   "Vizualizarea indicatorilor financiari cheie ai CD Projekt Red (2017–2025)")
+                   "Vizualizarea indicatorilor financiari cheie ai CD Projekt Red (2010–2025)")
 
-    problem_box("Cum putem monitoriza și vizualiza performanța financiară a CD Projekt Red pe o perioadă de 9 ani? "
+    problem_box("Cum putem monitoriza și vizualiza performanța financiară a CD Projekt Red pe o perioadă de 16 ani? "
                 "Compania a trecut prin cicluri dramatice — de la succesul The Witcher 3 la controversatul "
                 "launch Cyberpunk 2077 — iar înțelegerea acestor dinamici necesită instrumente interactive de vizualizare.")
 
-    info_box("Setul de date conține <b>9 observații</b> (2017–2025) cu indicatori financiari cheie extrași din rapoartele "
+    info_box("Setul de date conține <b>16 observații</b> (2010–2025) cu indicatori financiari cheie extrași din rapoartele "
              "anuale CDPR: <i>Revenue, Operating Profit, Net Profit, Marketing Costs, Total Assets, Total Equity</i> — "
              "toate exprimate în mii PLN (zlotul polonez).")
 
@@ -40,7 +40,7 @@ def page_streamlit(df):
 
     with tab1:
         fig = px.area(df, x='Year', y='Revenue', markers=True, template="plotly_dark",
-                      title="Evoluția Veniturilor CDPR (2017–2025)",
+                      title="Evoluția Veniturilor CDPR (2010–2025)",
                       labels={'Revenue': 'Venituri (mii PLN)', 'Year': 'An'})
         fig.update_traces(fill='tozeroy', line_color='#f3e600', fillcolor='rgba(243,230,0,0.15)')
         fig.update_layout(font=dict(family="Inter"), hovermode='x unified')

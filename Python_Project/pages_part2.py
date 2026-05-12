@@ -25,7 +25,7 @@ def page_pandas(df):
 
     st.markdown("## 📊 Grupare 1: Era Witcher vs. Era Cyberpunk")
     df_g = df.copy()
-    df_g['Era'] = df_g['Year'].apply(lambda x: '🎯 Pre-Cyberpunk (2017-2019)' if x < 2020 else '🌐 Post-Cyberpunk (2020-2025)')
+    df_g['Era'] = df_g['Year'].apply(lambda x: '🎯 Pre-Cyberpunk (2010-2019)' if x < 2020 else '🌐 Post-Cyberpunk (2020-2025)')
     grouped = df_g.groupby('Era').agg(
         Venituri_Medie=('Revenue', 'mean'),
         Venituri_Total=('Revenue', 'sum'),
@@ -88,7 +88,7 @@ def page_logistic(df):
                "• <b>Funcția de cost:</b> Cross-Entropy Loss<br>"
                "• <b>Implementare:</b> <code>sklearn.linear_model.LogisticRegression</code>")
 
-    info_box("Setul de date are doar <b>9 observații</b> — insuficient pentru un model robust. "
+    info_box("Setul de date are doar <b>16 observații</b> — insuficient pentru un model robust. "
              "Rezultatele sunt demonstrative și ilustrează metodologia, nu au valoare predictivă reală.")
 
     df_ml = df.copy()
@@ -276,5 +276,5 @@ def page_clustering(df):
 
     interpret_box("K-Means identifică <b>segmente distincte</b> de performanță: "
                   "anul 2020 formează aproape invariabil un cluster separat datorită veniturilor record. "
-                  "Anii 2017-2019 (era Witcher) se grupează împreună, iar 2021-2025 (recuperare post-Cyberpunk) "
+                  "Anii 2010-2019 (era pre-Cyberpunk) se grupează împreună, iar 2021-2025 (recuperare post-Cyberpunk) "
                   "formează al treilea segment. Această segmentare confirmă cele 3 faze strategice ale companiei.")

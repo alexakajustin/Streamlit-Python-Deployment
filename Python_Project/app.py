@@ -47,9 +47,9 @@ if page == "🏠 Prezentare Generală":
     st.markdown("""
     <div class="info-box">
     📋 <b>Despre Proiect:</b><br>
-    Acest dashboard interactiv analizează performanța financiară a <b>CD Projekt Red</b> (2017–2025),
+    Acest dashboard interactiv analizează performanța financiară a <b>CD Projekt Red</b> (2010–2025),
     studioul polonez de gaming responsabil pentru <i>The Witcher 3</i> și <i>Cyberpunk 2077</i>.
-    Proiectul demonstrează utilizarea a <b>9 cerințe obligatorii</b> din programul de seminar,
+    Proiectul demonstrează utilizarea a <b>9 cerințe obligatorii</b> din programul de seminar, pe baza a <b>16 observații</b> anuale,
     fiecare cu definirea problemei, metodologie, rezultate și interpretare economică.
     </div>
     """, unsafe_allow_html=True)
@@ -62,7 +62,7 @@ if page == "🏠 Prezentare Generală":
     c3.metric("Marja Profit", f"{latest['NetProfit']/latest['Revenue']*100:.1f}%")
     c4.metric("Active Totale", f"{latest['Assets']:,.0f} PLN")
 
-    st.markdown("## 📊 Evoluția Financiară (2017–2025)")
+    st.markdown("## 📊 Evoluția Financiară (2010–2025)")
     fig = go.Figure()
     fig.add_trace(go.Scatter(x=df['Year'], y=df['Revenue'], name='Venituri',
                              fill='tozeroy', line=dict(color='#f3e600', width=3),
@@ -102,7 +102,7 @@ if page == "🏠 Prezentare Generală":
     <div class="interpret-box">
     💡 <b>Context Economic: Eșecul și "The Redemption Arc" Cyberpunk 2077</b><br>
     Analiza de față ilustrează trei faze distincte ale companiei:<br><br>
-    <b>1. Era The Witcher 3 (2017-2019):</b> O perioadă de creștere stabilă, bazată pe un joc excelent și pe o reputație impecabilă a studioului.<br><br>
+    <b>1. Fondare și Creștere (2010-2019):</b> O perioadă de dezvoltare continuă, de la succesul inițial al seriei The Witcher la construirea reputației de studio AAA.<br><br>
     <b>2. Boom & Criză (2020-2021):</b> Lansarea Cyberpunk 2077 a fost un paradox financiar. Deși 2020 a adus venituri record de peste 2.1 mld PLN din precomenzi, lansarea a fost un <b>eșec tehnic catastrofal</b> pe consolele old-gen. Jocul a fost retras temporar de pe PlayStation Store, s-au oferit refund-uri masive, investitorii au dat în judecată compania, iar acțiunile s-au prăbușit. Anul 2021 reflectă costurile imense ale acestui dezastru (scădere de 58% a veniturilor și o marjă de profit de doar 23.5%).<br><br>
     <b>3. Recuperarea Reputației (2022-2025):</b> În loc să abandoneze proiectul, CDPR a investit timp și bani în repararea jocului. Succesul uriaș al anime-ului <i>Cyberpunk: Edgerunners</i>, alături de lansarea Patch-ului 2.0 și a expansiunii <i>Phantom Liberty</i> (2023), au transformat jocul dintr-un fail absolut într-un masterclass de RPG. Acest <i>"redemption arc"</i> se traduce vizibil în datele financiare: veniturile s-au stabilizat la peste 1 mld PLN anual, iar eficiența s-a maximizat, marja de profit ajungând la un nivel record de <b>60% în 2025</b>.
     </div>
